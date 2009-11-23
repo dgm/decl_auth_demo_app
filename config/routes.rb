@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :addresses
 
   map.resources :conferences do |conference|
+    conference.resources :addresses
     conference.resources :talks do |talk|
       talk.resources :talk_attendees, :as => :attendees
     end

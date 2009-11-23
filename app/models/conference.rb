@@ -9,6 +9,9 @@ class Conference < ActiveRecord::Base
   has_many :conference_attendees
   has_many :attendees, :through => :conference_attendees, :source => :user
   
+  has_many :conference_addresses
+  has_many :addresses, :through => :conference_addresses
+  
   def is_attended_by? (user)
     not attendence_of(user).nil?
   end

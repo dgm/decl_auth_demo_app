@@ -1,0 +1,20 @@
+<h1>Editing address</h1>
+
+<% form_for(@address, :url => polymorphic_path([@parent, @address].compact)) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show',polymorphic_path([@parent, @address].compact) %> |
+<%= link_to 'Back', polymorphic_path([@parent, :addresses].compact) %>

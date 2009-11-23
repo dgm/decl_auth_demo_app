@@ -5,4 +5,7 @@ class ConferenceAttendee < ActiveRecord::Base
   belongs_to :conference
   validates_presence_of :user, :conference
   validates_associated :user, :conference
+  
+  has_many :conference_addresses
+  has_many :addresses, :through => :conference_addresses
 end

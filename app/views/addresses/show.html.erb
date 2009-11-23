@@ -1,0 +1,16 @@
+<% if @parent %>
+<h2>belongs to: <%= @parent.title %></h2>
+<% end %>
+<p>
+  <b>Street:</b>
+  <%=h @address.street %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @address.state %>
+</p>
+
+
+<%= link_to 'Edit', edit_polymorphic_path([@parent, @address].compact) %> |
+<%= link_to 'Back', polymorphic_path([@parent, :addresses].compact)%>

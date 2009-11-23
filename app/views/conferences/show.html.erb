@@ -1,5 +1,7 @@
 <h1><%=h @conference.title %></h1>
 At <b><%=h @conference.location %></b>
+<br />
+<%= link_to "Conference Addresses", polymorphic_path([@conference, :addresses].compact) %>
 
 <h2>Talks</h2>
 <%= render :partial => 'talks/talks', :object => @conference.talks %>

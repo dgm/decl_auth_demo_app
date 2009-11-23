@@ -1,0 +1,28 @@
+<h1>Listing addresses</h1>
+<% if @parent %>
+<h2>for: <%= @parent.title %></h2>
+<% end %>
+<table>
+  <tr>
+    <th>Street</th>
+    <th>State</th>
+  </tr>
+
+<% @addresses.each do |address| %>
+  <tr>
+    <td><%=h address.street %></td>
+    <td><%=h address.state %></td>
+    <td><%= link_to 'Show', polymorphic_path([@parent, address].compact) %></td>
+    <td><%= link_to 'Edit', edit_polymorphic_path([@parent, address].compact) %></td>
+    <td><%= link_to 'Destroy', polymorphic_path([@parent, address].compact), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New address', new_polymorphic_path([@parent, :address].compact) %>
+<br />
+<% if @parent %>
+<%= link_to 'Back to ' + @parent.title, polymorphic_path([@parent]) %>
+<% end %>

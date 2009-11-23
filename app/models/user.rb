@@ -57,6 +57,9 @@ class User < ActiveRecord::Base
   # Application-specific code  
   has_many :talk_attendees
   has_many :conference_attendees
+  
+  has_many :attendee_addresses
+  has_many :addresses, :through =>:attendee_addresses
 
   # for ChangeAnalyzer: ensure that role_symbols is cloned
   def clone
